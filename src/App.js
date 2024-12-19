@@ -6,6 +6,8 @@ import CompressorComp
     from "./Components/ImageCompressor/Compressor";
 import CurrencyComp 
     from "./Components/CurrencyConvert/Currency";
+import PasswordForm 
+    from "./Components/PasswordManager/PasswordForm";
     
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -13,9 +15,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="">
         {/* <ButtonNavigation/> */}
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">Home</Link>
@@ -23,14 +25,19 @@ function App() {
             <li className="nav-item">
               <Link to="/compressor" className="nav-link">Compressor</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/currency" className="nav-link">Currency</Link>
+            </li> */}
+            <li className="nav-item">
+              <Link to="/passwordmanager" className="nav-link">PasswordManager</Link>
             </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/compressor" element={<CompressorComp />} />
           <Route path="/currency" element={<CurrencyComp />} />
+          <Route path="/passwordmanager" element={<PasswordForm />} />
+
         </Routes>
       </div>
     </Router>

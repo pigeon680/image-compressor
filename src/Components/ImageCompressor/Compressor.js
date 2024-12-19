@@ -171,18 +171,18 @@ function CompressorComp() {
                     </ul>
                 </div>
             )}
-            <div className="row mt-5">
+            <div className="row mt-5" style={{margin : '2rem'}}>
                 <div className="col-xl-3 col-lg-3 
-                col-md-12 col-sm-12">
+                col-md-12 col-sm-12" style={{marginTop : '5rem'}}>
                     {uploadImage ? (
                         <Card.Img className="image"
                             variant="top" src={originalLink}
                             alt="Original Image" />
                     ) : (
-                        <Card.Img className="uploadCard"
-                            variant="top" src={faUpload} alt="" />
-                    )}
-                    
+                        <Card.Img className="card-img-bottom image"
+                            variant="top" src={faUpload} alt="No Image" />
+                        )}
+                        {/* <img class="card-img-top image" alt="Original Image" src="blob:http://localhost:3000/15fe699a-cc2d-4095-8f06-053343e13f0f"></img> */}
                     <div className="d-flex justify-content-center 
                     upload-btn-wrapper">
                         <label htmlFor="uploadBtn"
@@ -204,7 +204,7 @@ function CompressorComp() {
                         col-md-12 col-sm-12 
                         d-flex justify-content-center 
                         align-items-baseline">
-                    <div>
+                    <div style={{marginTop : '5rem'}}>
                         {outputFileName ? (
                             <div>
                                 <label htmlFor="qualitySlider">
@@ -224,7 +224,7 @@ function CompressorComp() {
                                             )
                                     }
                                 />
-                                <div className="text-center">
+                                <div className="text-center" style={{marginTop : '5rem'}}>
                                     Original Size:
                                     {
                                         Math.round(originalSize / 1024)
@@ -274,11 +274,77 @@ function CompressorComp() {
                                 </div>
                             </div>
                         ) : (
-                            <></>
+                            <div style={{marginTop : '5rem'}}>
+                                <label htmlFor="qualitySlider">
+                                    Compression Quality:
+                                </label>
+                                <input
+                                    id="qualitySlider"
+                                    type="range"
+                                    min="0.0"
+                                    max="0"
+                                    step="0.0"
+                                    value={compressionQuality}
+                                    onChange={
+                                        (event) =>
+                                            setCompressionQuality(
+                                                parseFloat(event.target.value)
+                                            )
+                                    }
+                                />
+                                <div className="text-center" style={{marginTop : '5rem'}}>
+                                    Original Size:
+                                    {
+                                        Math.round(originalSize / 1024)
+                                    } KB
+                                    <br />
+                                    Compressed Size:
+                                    {
+                                        Math.round(compressedSize / 1024)
+                                    } KB
+                                </div>
+                                <div className="text-center" style={{marginTop : '3rem'}}>
+                                    {isCompressed &&
+                                        !compressionInProgress && (
+                                            <div className="text-success 
+                                            compressed-message">
+                                                Image compressed successfully!
+                                            </div>
+                                        )}
+                                    {
+                                        compressionInProgress &&
+                                        <div className="text-info">
+                                            Compressing image...
+                                        </div>
+                                    }
+                                </div>
+                                <div className="button-container">
+                                    {loading ? (
+                                        <div className="text-info">
+                                            Loading...
+                                        </div>
+                                    ) : (
+                                        <button type="button"
+                                            className="btn btn-success"
+                                            onClick={compressImage}
+                                            style={{height: 'auto'}}>
+                                            {/* <FontAwesomeIcon icon={faImage}
+                                                className="icon" /> */}
+                                            Compress
+                                        </button>
+                                    )}
+                                    <button type="button"
+                                        className="btn btn-danger ml-3"
+                                        onClick={resetApp}
+                                        style={{height: 'auto'}}>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
                         )}
                     </div>
                 </div>
-                <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+                <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12" style={{marginTop : '5rem'}}>
                     {showCompressedImage ? (
                         <div>
                             <Card.Img

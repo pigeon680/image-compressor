@@ -151,7 +151,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 100px;
+    gap: 3rem;
   }
   @media (max-width: 300px) {
     .help-container,
