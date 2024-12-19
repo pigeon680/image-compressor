@@ -114,7 +114,7 @@ function CompressorComp() {
         <div className="mainContainer">
             <Navbar className="navbar justify-content-between"
                 bg="lig" variant="dark">
-                <div>
+                <div className="image-compressor">
                     <Navbar.Brand className="navbar-content">
                         <center>
                             <FontAwesomeIcon icon={faImage}
@@ -182,13 +182,14 @@ function CompressorComp() {
                         <Card.Img className="uploadCard"
                             variant="top" src={faUpload} alt="" />
                     )}
+                    
                     <div className="d-flex justify-content-center 
                     upload-btn-wrapper">
                         <label htmlFor="uploadBtn"
                             className="btn btn-primary">
                             <FontAwesomeIcon icon={faUpload}
                                 className="icon" />
-                            Upload a file
+                            Upload
                         </label>
                         <input
                             type="file"
@@ -257,15 +258,17 @@ function CompressorComp() {
                                     ) : (
                                         <button type="button"
                                             className="btn btn-success"
-                                            onClick={compressImage}>
-                                            <FontAwesomeIcon icon={faImage}
-                                                className="icon" />
+                                            onClick={compressImage}
+                                            style={{height: 'auto'}}>
+                                            {/* <FontAwesomeIcon icon={faImage}
+                                                className="icon" /> */}
                                             Compress
                                         </button>
                                     )}
                                     <button type="button"
                                         className="btn btn-danger ml-3"
-                                        onClick={resetApp}>
+                                        onClick={resetApp}
+                                        style={{height: 'auto'}}>
                                         Reset
                                     </button>
                                 </div>
@@ -316,17 +319,13 @@ function CompressorComp() {
                         </div>
                     ) : (
                         <div className="d-flex align-items-center 
-                        justify-content-center">
+                            justify-content-center">
                             {
                                 compressionInProgress &&
                                 <Spinner animation="border" variant="primary" />
                             }
                             {
-                                !uploadImage &&
-                                !compressionInProgress && (
-                                    <FontAwesomeIcon icon={faImagePlaceholder}
-                                        className="icon" size="3x" />
-                                )
+                               
                             }
                         </div>
                     )}

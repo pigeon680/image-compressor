@@ -1,12 +1,51 @@
 //App.js
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import './App.css';
 import CompressorComp 
-    from "./Components/Compressor";
+    from "./Components/ImageCompressor/Compressor";
+import CurrencyComp 
+    from "./Components/CurrencyConvert/Currency";
+    
 import 'bootstrap/dist/css/bootstrap.css';
+
+
 function App() {
-    return (
-        <CompressorComp />
-    );
+  return (
+    <Router>
+      <div className="container">
+        {/* <ButtonNavigation/> */}
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/compressor" className="nav-link">Compressor</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/currency" className="nav-link">Currency</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/compressor" element={<CompressorComp />} />
+          <Route path="/currency" element={<CurrencyComp />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+function ButtonNavigation() {
+  const navigate = useNavigate();
+
+  return (
+      <div className="mb-3">
+          <button className="btn btn-primary m-1" onClick={() => navigate('/')}>Home</button>
+          <button className="btn btn-primary m-1" onClick={() => navigate('/compressor')}>Compressor</button>
+          <button className="btn btn-primary m-1" onClick={() => navigate('/currency')}>Currency</button>
+      </div>
+  );
 }
 export default App;
