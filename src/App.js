@@ -8,6 +8,8 @@ import CurrencyComp
     from "./Components/CurrencyConvert/Currency";
 import PasswordForm 
     from "./Components/PasswordManager/PasswordForm";
+import RegisterPanel 
+    from "./Components/RegisterPanel/RegisterPanel";
     
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -29,14 +31,18 @@ function App() {
               <Link to="/currency" className="nav-link">Currency</Link>
             </li> */}
             <li className="nav-item">
-              <Link to="/passwordmanager" className="nav-link">PasswordManager</Link>
+              <Link to="/password" className="nav-link">PasswordManager</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/register" className="nav-link">Register</Link>
             </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/compressor" element={<CompressorComp />} />
           <Route path="/currency" element={<CurrencyComp />} />
-          <Route path="/passwordmanager" element={<PasswordForm />} />
+          <Route path="/password" element={<PasswordForm />} />
+          <Route path="/register" element={<RegisterPanel />} />
 
         </Routes>
       </div>

@@ -48,7 +48,7 @@ input {
     padding-left: 30px;
 }
 
-button {
+/* button {
     width: 100px;
     height: 30px;
     font-weight: bold;
@@ -57,7 +57,7 @@ button {
     border: 2px solid forestgreen;
     background-color: rgb(226, 252, 184);
     cursor: pointer;
-}
+} */
 
 p,
 h3,

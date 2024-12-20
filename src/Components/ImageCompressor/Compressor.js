@@ -12,7 +12,7 @@ import { FontAwesomeIcon }
     from '@fortawesome/react-fontawesome';
 import {
     faImage, faDownload,
-    faUpload, faImage as faImagePlaceholder,
+    faUpload, 
     faQuestionCircle,
     faHistory
 } from '@fortawesome/free-solid-svg-icons';
